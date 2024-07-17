@@ -46,7 +46,7 @@ $queryProduk = mysqli_query($koneksi, "SELECT * FROM barang ORDER BY id DESC LIM
                         <strong class="product-price"><?= "Rp. " . number_format($rowProduct['harga']) ?></strong>
 
                         <span class="icon-cross">
-                            <img src="images/cross.svg" class="img-fluid">
+                            <img src="asset/fe/images/cross.svg" class="img-fluid">
                         </span>
                     </a>
                 </div>
