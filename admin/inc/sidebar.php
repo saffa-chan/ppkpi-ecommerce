@@ -93,9 +93,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="../layout/fixed-sidebar.html" class="nav-link">
+                            <a href="?pg=member" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Fixed Sidebar</p>
+                                <p>Member</p>
                             </a>
                         </li>
                         <li class="nav-item">

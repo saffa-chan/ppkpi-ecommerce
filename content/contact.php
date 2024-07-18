@@ -1,3 +1,7 @@
+<?php
+$queryContact =  mysqli_query($koneksi, "SELECT * FROM setting LIMIT 1");
+$rowContact = mysqli_fetch_assoc($queryContact);
+?>
 <!-- Start Hero Section -->
 <div class="hero">
     <div class="container">
@@ -11,7 +15,7 @@
             </div>
             <div class="col-lg-7">
                 <div class="hero-img-wrap">
-                    <img src="images/couch.png" class="img-fluid">
+                    <img src="asset/fe/images/couch.png" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -40,7 +44,7 @@
                                     </svg>
                                 </div> <!-- /.icon -->
                                 <div class="service-contents">
-                                    <p>43 Raymouth Rd. Baltemoer, London 3910</p>
+                                    <p><?= $rowContact['alamat_website'] ?></p>
                                 </div> <!-- /.service-contents-->
                             </div> <!-- /.service -->
                         </div>
@@ -53,7 +57,7 @@
                                     </svg>
                                 </div> <!-- /.icon -->
                                 <div class="service-contents">
-                                    <p>info@yourdomain.com</p>
+                                    <p><?= $rowContact['email_website'] ?></p>
                                 </div> <!-- /.service-contents-->
                             </div> <!-- /.service -->
                         </div>
@@ -66,7 +70,7 @@
                                     </svg>
                                 </div> <!-- /.icon -->
                                 <div class="service-contents">
-                                    <p>+1 294 3925 3939</p>
+                                    <p><?= $rowContact['no_tp_website'] ?></p>
                                 </div> <!-- /.service-contents-->
                             </div> <!-- /.service -->
                         </div>

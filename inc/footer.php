@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="subscription-form">
-                    <h3 class="d-flex align-items-center"><span class="me-1"><img src="images/envelope-outline.svg" alt="Image" class="img-fluid"></span><span>Subscribe to Newsletter</span></h3>
+                    <h3 class="d-flex align-items-center"><span class="me-1"><img src="asset/fe/images/envelope-outline.svg" alt="Image" class="img-fluid"></span><span>Subscribe to Newsletter</span></h3>
 
                     <form action="#" class="row g-3">
                         <div class="col-auto">
@@ -35,7 +35,7 @@
 
                 <ul class="list-unstyled custom-social">
                     <li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
-                    
+
                     <li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
                     <li><a href="#"><span class="fa fa-brands fa-linkedin"></span></a></li>
                 </ul>
