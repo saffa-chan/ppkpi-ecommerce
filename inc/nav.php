@@ -1,10 +1,13 @@
 <?php
 //include 'admin/function/get_data.php';
 
-$id_member = $_SESSION['id_member'];
+$id_member = isset($_SESSION['id_member']) ? $_SESSION['id_member'] : '';
 $query = mysqli_query($koneksi, "SELECT * FROM member WHERE id = '$id_member'");
 $data = mysqli_fetch_assoc($query);
 
+if (!empty($_SESSION['cart'])) {
+    $cart_count = count($_SESSION['cart']);
+}
 //$memberb = getData($koneksi, $id_member);
 //print_r($data);
 //die;
@@ -34,9 +37,9 @@ $data = mysqli_fetch_assoc($query);
             <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
                 <li>
                     <a class="nav-link" href="?pg=login-member">
-                        <img src="asset/fe/images/user.svg"><?= $data['nama_lengkap'] ?>
+                        <img src="asset/fe/images/user.svg"><?= isset($data['nama_lengkap']) ? $data['nama_lengkap'] : '' ?>
                 </li>
-                <li><a class="nav-link" href="cart.html"><img src="asset/fe/images/cart.svg"></a></li>
+                <li><a class="nav-link" href="?pg=cart"><img src="asset/fe/images/cart.svg"><?= isset($cart_count) ? $cart_count : '' ?></a></li>
             </ul>
         </div>
     </div>

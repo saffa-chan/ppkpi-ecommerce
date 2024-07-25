@@ -1,8 +1,8 @@
 <?php
 $queryProduk = mysqli_query($koneksi, "SELECT * FROM barang ORDER BY id DESC LIMIT 3");
 
+print_r($_SESSION);
 ?>
-
 <!-- Start Hero Section -->
 <div class="hero">
     <div class="container">
@@ -42,7 +42,9 @@ $queryProduk = mysqli_query($koneksi, "SELECT * FROM barang ORDER BY id DESC LIM
                 <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
                     <form action="?pg=action-cart" method="post">
                         <button style="border: none" type="submit" class="product-item">
+                            <input type="hidden" name="qty" value="<?= $rowProduct['qty'] ?>">
                             <input type="hidden" name="id_produk" value="<?= $rowProduct['id'] ?>">
+                            <input type="hidden" name="harga" value="<?= $rowProduct['harga'] ?>">
                             <img src="admin/upload/<?= $rowProduct['foto'] ?>" class="img-fluid product-thumbnail">
                             <h3 class="product-title"><?= $rowProduct['nama_barang'] ?></h3>
                             <strong class="product-price"><?= "Rp. " . number_format($rowProduct['harga']) ?></strong>

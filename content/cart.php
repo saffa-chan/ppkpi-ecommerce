@@ -39,53 +39,34 @@ if (!isset($_SESSION['id_member'])) {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="product-thumbnail">
-                                    <img src="asset/fe/images/product-1.png" alt="Image" class="img-fluid">
-                                </td>
-                                <td class="product-name">
-                                    <h2 class="h5 text-black">Product 1</h2>
-                                </td>
-                                <td>$49.00</td>
-                                <td>
-                                    <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
-                                        <div class="input-group-prepend">
-                                            <button class="btn btn-outline-black decrease" type="button">&minus;</button>
+                            <?php foreach ($_SESSION['cart'] as $item) : ?>
+                                <tr>
+                                    <td class="product-thumbnail">
+                                        <img src="admin/upload/<?= $item['foto']; ?>" alt="Image" class="img-fluid">
+                                    </td>
+                                    <td class="product-name">
+                                        <h2 class="h5 text-black"><?= $item['nama_produk'] ?></h2>
+                                    </td>
+                                    <td><?= "Rp." . number_format($item['harga']) ?></td>
+                                    <td>
+                                        <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
+                                            <div class="input-group-prepend">
+                                                <button class="btn btn-outline-black decrease" type="button">&minus;</button>
+                                            </div>
+                                            <input type="text" class="form-control text-center quantity-amount" value="<?= $item['qty'] ?>" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-black increase" type="button">&plus;</button>
+                                            </div>
                                         </div>
-                                        <input type="text" class="form-control text-center quantity-amount" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-black increase" type="button">&plus;</button>
-                                        </div>
-                                    </div>
 
-                                </td>
-                                <td>$49.00</td>
-                                <td><a href="#" class="btn btn-black btn-sm">X</a></td>
-                            </tr>
+                                    </td>
+                                    <td><?= "Rp." . number_format($item['harga'] * $item['qty']);  ?></td>
+                                    <td><a href="?pg=action-cart&delete-cart=<?= $item['id_produk'] ?>" class="btn btn-black btn-sm">X</a></td>
+                                </tr>
+                            <?php endforeach; ?>
 
-                            <tr>
-                                <td class="product-thumbnail">
-                                    <img src="asset/fe/images/product-2.png" alt="Image" class="img-fluid">
-                                </td>
-                                <td class="product-name">
-                                    <h2 class="h5 text-black">Product 2</h2>
-                                </td>
-                                <td>$49.00</td>
-                                <td>
-                                    <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
-                                        <div class="input-group-prepend">
-                                            <button class="btn btn-outline-black decrease" type="button">&minus;</button>
-                                        </div>
-                                        <input type="text" class="form-control text-center quantity-amount" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-black increase" type="button">&plus;</button>
-                                        </div>
-                                    </div>
 
-                                </td>
-                                <td>$49.00</td>
-                                <td><a href="#" class="btn btn-black btn-sm">X</a></td>
-                            </tr>
+
                         </tbody>
                     </table>
                 </div>
@@ -128,7 +109,7 @@ if (!isset($_SESSION['id_member'])) {
                                 <span class="text-black">Subtotal</span>
                             </div>
                             <div class="col-md-6 text-right">
-                                <strong class="text-black">$230.00</strong>
+                                <strong class="text-black"><?= "Rp." . number_format($item['harga'] * $item['qty']);  ?></strong>
                             </div>
                         </div>
                         <div class="row mb-5">
@@ -136,7 +117,7 @@ if (!isset($_SESSION['id_member'])) {
                                 <span class="text-black">Total</span>
                             </div>
                             <div class="col-md-6 text-right">
-                                <strong class="text-black">$230.00</strong>
+                                <strong class="text-black"><?= "Rp." . number_format($item['harga'] * $item['qty']);  ?></strong>
                             </div>
                         </div>
 
